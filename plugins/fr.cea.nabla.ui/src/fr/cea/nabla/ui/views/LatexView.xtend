@@ -12,12 +12,6 @@ package fr.cea.nabla.ui.views
 import com.google.inject.Inject
 import fr.cea.nabla.LatexImageServices
 import fr.cea.nabla.LatexLabelServices
-import fr.cea.nabla.nabla.Expression
-import fr.cea.nabla.nabla.Function
-import fr.cea.nabla.nabla.Instruction
-import fr.cea.nabla.nabla.InstructionBlock
-import fr.cea.nabla.nabla.Job
-import fr.cea.nabla.nabla.Reduction
 import fr.cea.nabla.ui.NablaDslEditor
 import fr.cea.nabla.ui.syntaxcoloring.NablaHighlightingConfiguration
 import java.awt.Color
@@ -57,7 +51,8 @@ class LatexView extends ViewPart
 						val o = nablaDslEditor.getObjectAtPosition(textSelection.offset)
 						if (o !== null)
 						{
-							val displayableObject = nablaDslEditor.getObjectAtPosition(textSelection.offset).closestDisplayableNablaElt
+							val objectAtPosition = nablaDslEditor.getObjectAtPosition(textSelection.offset)
+							val displayableObject = LatexLabelServices.getClosestDisplayableNablaElt(objectAtPosition)
 							if (displayableObject !== null)
 							{
 								val image = displayableObject.latexImage
@@ -88,34 +83,6 @@ class LatexView extends ViewPart
 	override setFocus()
 	{
 		label.setFocus
-	}
-
-	/** Return the highest displayable object, Job, Instruction or Expression */
-	private def EObject getClosestDisplayableNablaElt(EObject elt)
-	{
-		switch elt
-		{
-			case null: null
-			Job: elt
-			Function: elt
-			Reduction: elt
-			InstructionBlock: null
-			Instruction:
-				if (elt.eContainer === null)
-					null
-				else 
-					elt.eContainer.closestDisplayableNablaElt ?: elt
-			Expression:
-				if (elt.eContainer === null)
-					null
-				else 
-					elt.eContainer.closestDisplayableNablaElt ?: elt
-			default:
-				if (elt.eContainer === null)
-					null 
-				else 
-					elt.eContainer.closestDisplayableNablaElt
-		}
 	}
 
 	private def getLatexImage(EObject element)

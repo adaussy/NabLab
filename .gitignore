@@ -20,3 +20,12 @@ output
 target/
 # macOS
 .DS_Store
+# Gradle
+.gradle
+# Node
+node_modules/
+# Next.js build output
+.next
+out
+# Optional npm cache directory
+.npm

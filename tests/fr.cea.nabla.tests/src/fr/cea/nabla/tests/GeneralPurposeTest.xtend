@@ -42,7 +42,7 @@ class GeneralPurposeTest
 			Pattern.compile(Pattern.quote(" * terms of the Eclipse Public License 2.0 which is available at")), //$NON-NLS-1$
 			Pattern.compile(Pattern.quote(" * http://www.eclipse.org/legal/epl-2.0.")), //$NON-NLS-1$
 			Pattern.compile(Pattern.quote(" *")), //$NON-NLS-1$
-			Pattern.compile(Pattern.quote(" * SPDX-License-Identifier: EPL-2.0")), //$NON-NLS-1$
+			Pattern.compile(Pattern.quote(" * SPDX-License-Identifier: EPL-2.0( OR Apache-2.0)?")), //$NON-NLS-1$
 			Pattern.compile(Pattern.quote(" * Contributors: see AUTHORS file")), //$NON-NLS-1$
 			Pattern.compile(Pattern.quote(" *******************************************************************************/"))) //$NON-NLS-1$
 

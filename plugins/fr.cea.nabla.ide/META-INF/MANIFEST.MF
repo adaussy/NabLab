@@ -14,4 +14,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: fr.cea.nabla.ide,
  fr.cea.nabla.ide.contentassist.antlr,
  fr.cea.nabla.ide.contentassist.antlr.internal
+Bundle-ClassPath: .
 

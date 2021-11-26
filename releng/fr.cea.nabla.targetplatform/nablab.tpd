@@ -38,6 +38,11 @@ location eclipse "https://download.eclipse.org/releases/2021-09" {
 	org.apache.commons.lang3
 	com.google.guava
 	com.google.gson
+	org.eclipse.jetty.http
+	org.eclipse.jetty.server
+	org.eclipse.jetty.servlet
+	org.eclipse.jetty.util
+	jakarta.servlet-api
 }
 
 location sirius "https://download.eclipse.org/sirius/updates/releases/6.5.1/2020-09" {
@@ -65,6 +70,12 @@ location gmf-runtime-diagram "https://download.eclipse.org/modeling/gmp/gmf-runt
 location "https://download.eclipse.org/tools/orbit/downloads/drops/R20210825222808/repository" {
 	org.hamcrest [2.2.0,3.0.0)
 	org.assertj [3.20.2,4.0.0)
+}
+
+location "https://download.eclipse.org/lsp4j/updates/releases/0.10.0/" {
+	org.eclipse.lsp4j
+	org.eclipse.lsp4j.jsonrpc
+	org.eclipse.lsp4j.generator
 }
 
 location python "http://www.pydev.org/update_sites/9.1.0" {

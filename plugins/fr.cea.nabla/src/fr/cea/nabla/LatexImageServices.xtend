@@ -61,7 +61,7 @@ class LatexImageServices
 			texFormulaWithDollars.substring(1, l-1)
 	}
 
-	/** Retuen a BufferedImage instance from a LaTeX (without '$' characters) */
+	/** Return a BufferedImage instance from a LaTeX (without '$' characters) */
 	private static def BufferedImage createImage(String texFormula, float size, Color color)
 	{
 		val formula = new TeXFormula(texFormula)

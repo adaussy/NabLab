@@ -10,7 +10,6 @@ Bundle-ActivationPolicy: lazy
 Require-Bundle: fr.cea.nabla.ir,
  org.eclipse.xtext,
  org.eclipse.xtext.xbase,
- org.eclipse.equinox.common,
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.xtext.util,
@@ -20,9 +19,7 @@ Require-Bundle: fr.cea.nabla.ir,
  org.eclipse.emf.mwe2.launch,
  org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
  org.eclipse.core.resources,
- jlatexmath;bundle-version="1.0.7",
- org.eclipse.jdt.core,
- org.eclipse.jdt.ui
+ jlatexmath;bundle-version="1.0.7"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: fr.cea.nabla,
  fr.cea.nabla.generator,
