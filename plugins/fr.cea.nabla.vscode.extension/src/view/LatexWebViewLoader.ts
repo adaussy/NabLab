@@ -69,7 +69,7 @@ export default class LatexWebViewLoader {
             window.acquireVsCodeApi = acquireVsCodeApi;
             window.projectName = '${webViewContext.projectName}';
             window.nablaModelPath = '${webViewContext.nablaModelPath}';
-            window.offset = '${webViewContext.offset}';
+            window.offset = ${webViewContext.offset};
           </script>
       </head>
       <body>
@@ -84,5 +84,5 @@ interface LatexWebViewContext {
   extensionPath: string;
   projectName: string;
   nablaModelPath: string;
-  offset: number;
+  offset: number
 }

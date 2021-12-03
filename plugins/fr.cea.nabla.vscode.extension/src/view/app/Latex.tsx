@@ -22,24 +22,30 @@ interface AppProps {
 export const Latex = ({
   projectName,
   nablaModelPath,
-  offset,
+  offset
 }: AppProps) => {
   
   const [state, setState] = useState<LatexState>({imgURL: ''});
 
   useEffect(() => {
     if (projectName && offset) {
+      const formulaColor = getComputedStyle(document.documentElement).getPropertyValue('--vscode-editor-foreground');
+
       fetch(`http://127.0.0.1:8082/latex`, {
         method: 'POST',
         mode: 'cors',
         headers: {
           "Content-Type": "text/plain"
         },
-        body: JSON.stringify({projectName: projectName, nablaModelPath: nablaModelPath, offset: offset}),
+        body: JSON.stringify({projectName: projectName, nablaModelPath: nablaModelPath, offset: offset, formulaColor: formulaColor}),
       })
         .then(response => response.blob())
         .then(blob => URL.createObjectURL(blob))
-        .then(url => setState({imgURL: url}))
+        .then(url => {
+          setState((prevState) => {
+            return { ...prevState, imgURL: url };
+          })
+        })
         .catch((reason) => {
           console.log(reason);
         });

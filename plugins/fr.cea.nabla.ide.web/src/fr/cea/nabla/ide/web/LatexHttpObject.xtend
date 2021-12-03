@@ -14,6 +14,7 @@ package class LatexHttpObject
 	String projectName
 	String nablaModelPath
 	Integer offset
+	String formulaColor
 
 	def String getProjectName()
 	{
@@ -28,5 +29,10 @@ package class LatexHttpObject
 	def Integer getOffset()
 	{
 		this.offset
+	}
+	
+	def String getFormulaColor()
+	{
+		this.formulaColor
 	}
 }

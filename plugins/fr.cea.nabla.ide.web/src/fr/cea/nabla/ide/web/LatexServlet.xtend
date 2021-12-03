@@ -63,7 +63,8 @@ class LatexServlet extends HttpServlet
 					if (displayableObject !== null)
 					{
 						val latexFormula = LatexLabelServices.getLatex(displayableObject)
-						val bufferedImage = LatexImageServices.createPngImage(latexFormula, 40, Color.WHITE)
+						val formulaColor = Color.decode(latexObject.formulaColor);
+						val bufferedImage = LatexImageServices.createPngImage(latexFormula, 30, formulaColor)
 						response.reset()
 						response.setStatus(HttpServletResponse.SC_OK)
 						response.setBufferSize(DEFAULT_BUFFER_SIZE)
@@ -88,7 +89,7 @@ class LatexServlet extends HttpServlet
 							close(output)
 							close(input)
 						}
-						}
+					}
 				}
 			}
 		}

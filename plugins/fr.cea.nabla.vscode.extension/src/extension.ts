@@ -50,9 +50,7 @@ export function activate(context: ExtensionContext) {
     window.onDidChangeTextEditorSelection((e) => {
         if (e?.textEditor?.document?.languageId === 'nabla') {
             const activeEditorFileURI = e.textEditor.document.uri;
-            console.log(activeEditorFileURI);
             const projectFolder = workspace.getWorkspaceFolder(activeEditorFileURI);
-            console.log(projectFolder);
 			const offset = e.textEditor.document.offsetAt(e.textEditor.selection?.anchor);
             if (projectFolder && offset) {
                 LatexWebViewLoader.update(context.extensionPath, projectFolder.name, activeEditorFileURI.fsPath, offset);

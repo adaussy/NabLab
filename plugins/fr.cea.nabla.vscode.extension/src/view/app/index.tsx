@@ -21,6 +21,8 @@ declare global {
 }
 
 ReactDOM.render(
-  <Latex projectName={window.projectName} nablaModelPath={window.nablaModelPath} offset={window.offset}/>,
+  <Latex projectName={window.projectName}
+         nablaModelPath={window.nablaModelPath}
+         offset={window.offset}/>,
   document.getElementById('root')
 );
