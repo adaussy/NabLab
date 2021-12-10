@@ -18,6 +18,7 @@ output
 .nablab
 # Maven
 target/
+.polyglot.*
 # macOS
 .DS_Store
 # Gradle
