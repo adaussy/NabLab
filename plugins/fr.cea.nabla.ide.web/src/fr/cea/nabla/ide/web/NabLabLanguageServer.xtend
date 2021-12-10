@@ -18,4 +18,9 @@ class NabLabLanguageServer extends LanguageServerImpl
 	{
 		super.workspaceManager
 	}
+	
+	override protected getLanguageClient()
+	{
+		super.getLanguageClient()
+	}
 }

@@ -15,14 +15,12 @@ import org.eclipse.jetty.server.handler.DefaultHandler
 import org.eclipse.jetty.server.handler.HandlerList
 import org.eclipse.jetty.servlet.ServletContextHandler
 import org.eclipse.jetty.servlet.ServletHolder
+import org.eclipse.lsp4j.MessageParams
+import org.eclipse.lsp4j.MessageType
 import org.eclipse.xtext.resource.EObjectAtOffsetHelper
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 
 class NabLabJettyServer
 {
-	final Logger logger = LoggerFactory.getLogger(NabLabJettyServer)
-
 	def void start(NabLabLanguageServer languageServer, EObjectAtOffsetHelper eObjectAtOffsetHelper) throws Exception
 	{
 		var server = new Server(8082)
@@ -41,20 +39,20 @@ class NabLabJettyServer
 		try
 		{
 			server.start()
-			logger.info("NabLab JettyServer started")
+			languageServer.languageClient.logMessage(new MessageParams(MessageType.Info, "NabLab Server for Latex View started"))
 		}
-		catch (Exception exception)
+		catch (Exception e)
 		{
-			logger.error('''NabLab JettyServer error on start : «exception.getMessage()»''')
+			languageServer.languageClient.logMessage(new MessageParams(MessageType.Error, "NabLab Server for Latex View error on start: " + e.message))
 		}
 
 		try
 		{
 			server.join()
 		}
-		catch (Exception exception)
+		catch (Exception e)
 		{
-			logger.error('''NabLab JettyServer error on join : «exception.getMessage()»''')
+			languageServer.languageClient.logMessage(new MessageParams(MessageType.Info, "NabLab Server for Latex View error on join: " + e.message))
 		}
 
 	}

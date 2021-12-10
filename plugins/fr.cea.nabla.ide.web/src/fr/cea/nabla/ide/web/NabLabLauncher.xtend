@@ -18,6 +18,8 @@ import org.eclipse.xtext.ide.server.LaunchArgs
 import org.eclipse.xtext.ide.server.ServerLauncher
 import org.eclipse.xtext.ide.server.ServerModule
 import org.eclipse.xtext.resource.EObjectAtOffsetHelper
+import org.eclipse.lsp4j.MessageParams
+import org.eclipse.lsp4j.MessageType
 
 class NabLabLauncher extends ServerLauncher
 {
@@ -46,7 +48,8 @@ class NabLabLauncher extends ServerLauncher
 				args.in, args.out, args.isValidate, args.trace)
 			nabLabLanguageServer.connect(launcher.remoteProxy)
 			var future = launcher.startListening()
-			InputOutput.println("Xtext Language Server has been started.")
+			launcher.remoteProxy.logMessage(new MessageParams(MessageType.Info, "NabLab Language Server has been started."))
+			
 			var nabLabJettyServer = new NabLabJettyServer()
 			try
 			{

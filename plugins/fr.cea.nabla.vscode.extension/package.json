@@ -48,8 +48,21 @@
               "command": "nablabweb.showLatexView",
               "title": "Display LaTex View",
               "category": "NabLab"
+            },
+            {
+                "command": "nablabweb.generateNablagen.proxy",
+                "title": "Generate Nablagen",
+                "category": "NabLab"
             }
-        ]
+        ],
+        "menus": {
+            "explorer/context": [
+                {
+                    "when": "resourceLangId == nabla",
+                    "command": "nablabweb.generateNablagen.proxy"
+                }
+            ]
+        }
     },
     "devDependencies": {
         "@types/node": "16.6.0",

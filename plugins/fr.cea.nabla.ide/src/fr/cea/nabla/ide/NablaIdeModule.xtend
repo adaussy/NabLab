@@ -9,9 +9,16 @@
  *******************************************************************************/
 package fr.cea.nabla.ide
 
+import fr.cea.nabla.ide.commands.LSPCommandsHandler
+import org.eclipse.xtext.ide.server.commands.IExecutableCommandService
+
 /**
  * Use this class to register ide components.
  */
 class NablaIdeModule extends AbstractNablaIdeModule
 {
+	def Class<? extends IExecutableCommandService> bindIExecutableCommandService()
+	{
+		typeof(LSPCommandsHandler)
+	}
 }
