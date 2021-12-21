@@ -14,12 +14,13 @@
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "strictNullChecks": true
   },
   "exclude": [
     "node_modules",
     ".vscode-test",
-    "**/view/app/index.tsx",
-    "**/view/app/tsconfig.json",
+    "**/view/latex/index.tsx",
+    "**/view/jobsgraph/index.tsx",
   ]
 }

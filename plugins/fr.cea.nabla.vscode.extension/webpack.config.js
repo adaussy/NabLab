@@ -12,10 +12,11 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    nablabweb: './src/view/app/index.tsx',
+    latexwebview: './src/view/latex/index.tsx',
+    jobsgraphwebview: './src/view/jobsgraph/index.tsx',
   },
   output: {
-    path: path.resolve(__dirname, 'nablabweb'),
+    path: path.resolve(__dirname, 'webviews'),
     filename: '[name].js',
   },
   devtool: 'eval-source-map',
